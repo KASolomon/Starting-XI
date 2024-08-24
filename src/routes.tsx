@@ -7,11 +7,9 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <WelcomeScreen />,
-    children: [
-      { path: "playerDetails", element: <PlayerList /> },
-      { path: "teamSheet", element: <TeamList /> },
-    ],
   },
+  { path: "/playerDetails", element: <PlayerList /> },
+  { path: "/teamSheet", element: <TeamList /> },
 ]);
 
 export default router;
