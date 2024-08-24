@@ -90,7 +90,8 @@ const TeamList = () => {
           </Grid>
 
           <Center mt={8}>
-            <Button width={"30vw"} bgColor={"orange.600"} onClick={() => {}}>
+            <Button  bgColor={"orange.600"} onClick={() => {    localStorage.setItem("teams", JSON.stringify(teams));
+}}>
               <Icon as={FaClipboardList} marginRight={2} boxSize={6} />
               Save Team Sheet
             </Button>

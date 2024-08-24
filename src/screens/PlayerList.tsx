@@ -44,13 +44,11 @@ const PlayerList = () => {
     // // Create teams by slicing the shuffled array
     for (let i = 0; i < availablePlayers.length; i += playersPerTeam) {
       teams.push(availablePlayers.slice(i, i + playersPerTeam));
-      console.log(playersPerTeam, "Players per team");
-      console.log(i, "i");
-      console.log(i + playersPerTeam, "i + playersPerTeam");
-      console.log(teams, "->teams");
+     
     }
 
     setAppData({ playersPerTeam, totalPlayers, teams });
+
     navigate("/teamSheet");
   };
   const backgroundColor = useColorModeValue("gray.50", "blue.900");
