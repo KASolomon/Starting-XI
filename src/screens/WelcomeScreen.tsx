@@ -1,17 +1,17 @@
 import {
-    Button,
-    Center,
-    Flex,
-    FormControl,
-    FormLabel,
-    Heading,
-    Icon,
-    NumberDecrementStepper,
-    NumberIncrementStepper,
-    NumberInput,
-    NumberInputField,
-    NumberInputStepper,
-    Text
+  Button,
+  Center,
+  Flex,
+  FormControl,
+  FormLabel,
+  Heading,
+  Icon,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  Text,
 } from "@chakra-ui/react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
@@ -26,18 +26,14 @@ interface FormData {
   playersPerTeam: number;
 }
 const WelcomeScreen = () => {
-  const {
-    register,
-    handleSubmit,
-  } = useForm<FormData>();
+  const { register, handleSubmit } = useForm<FormData>();
   const { appData, setAppData } = useContext(StartingXIContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleDataSubmit = (values: FormData) => {
     setAppData({ ...appData, ...values });
     navigate("/playerDetails");
   };
-
 
   return (
     <>
@@ -73,7 +69,7 @@ const WelcomeScreen = () => {
               <NumberInput min={0} id="totalPlayers">
                 <NumberInputField
                   placeholder="How many players do you have?"
-                  {...register("totalPlayers")}
+                  {...register("totalPlayers", { valueAsNumber: true })}
                 />
                 <NumberInputStepper>
                   <NumberIncrementStepper />
@@ -88,7 +84,7 @@ const WelcomeScreen = () => {
               <NumberInput min={0} id="playersPerTeam">
                 <NumberInputField
                   placeholder="How many players per team?"
-                  {...register("playersPerTeam")}
+                  {...register("playersPerTeam", { valueAsNumber: true })}
                 />
                 <NumberInputStepper>
                   <NumberIncrementStepper />
@@ -111,7 +107,7 @@ const WelcomeScreen = () => {
           </Flex>
         </LeftSlideBox>
       </Center>
-      <Footer/>
+      <Footer />
     </>
   );
 };

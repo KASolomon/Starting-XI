@@ -16,16 +16,21 @@ import { useForm } from "react-hook-form";
 import { StartingXIContext } from "../config/AppContext";
 import { GiSoccerKick } from "react-icons/gi";
 import Footer from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 
 const PlayerList = () => {
   const {
-    appData: { playersPerTeam , totalPlayers  },
+    appData: { playersPerTeam, totalPlayers },
     setAppData,
   } = useContext(StartingXIContext);
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const inputFields = Array.from({ length: totalPlayers });
+
+  const navigate = useNavigate();
   const handleTeamGeneration = (values: any) => {
+    debugger;
     const availablePlayers = Object.values(values);
+    reset();
     const teams = [];
     // Shuffle array
     for (let i = availablePlayers.length - 1; i > 0; i--) {
@@ -35,12 +40,18 @@ const PlayerList = () => {
         availablePlayers[i],
       ]; // Swap elements
     }
-    // Create teams by slicing the shuffled array
-    for (let i = 0; i < totalPlayers; i += playersPerTeam) {
+
+    // // Create teams by slicing the shuffled array
+    for (let i = 0; i < availablePlayers.length; i += playersPerTeam) {
       teams.push(availablePlayers.slice(i, i + playersPerTeam));
+      console.log(playersPerTeam, "Players per team");
+      console.log(i, "i");
+      console.log(i + playersPerTeam, "i + playersPerTeam");
+      console.log(teams, "->teams");
     }
 
     setAppData({ playersPerTeam, totalPlayers, teams });
+    navigate("/teamSheet");
   };
   const backgroundColor = useColorModeValue("gray.50", "blue.900");
 
@@ -109,7 +120,6 @@ const PlayerList = () => {
 
           <Center mt={8}>
             <Button
-              width={"30vw"}
               bgColor={"orange.500"}
               onClick={handleSubmit(handleTeamGeneration)}
             >
