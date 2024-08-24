@@ -37,9 +37,15 @@ const WelcomeScreen = () => {
 
 
   return (
-    <Center flexGrow={1} minH={"100vh"}>
+    <Center
+      backgroundImage={"url('./src/assets/pitch.jpg')"}
+      backgroundColor={"transparent"}
+      backgroundPosition="center"
+      width={"100vw"}
+      flexGrow={1}
+      minH={"100vh"}
+    >
       <LeftSlideBox>
-
         <Heading
           fontSize={{ base: "large", md: "x-large" }}
           textAlign={"center"}
@@ -103,7 +109,6 @@ const WelcomeScreen = () => {
           </Center>
         </Flex>
       </LeftSlideBox>
-
     </Center>
   );
 };
