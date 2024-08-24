@@ -31,7 +31,7 @@ const TeamList = () => {
       <Center
         flexGrow={1}
         minH={"100vh"}
-        backgroundImage={"url('./src/assets/pitch2.jpg')"}
+        backgroundImage={"url('/pitch2.jpg')"}
         backgroundPosition="center"
         width={"100vw"}
         minHeight={"100vh"}

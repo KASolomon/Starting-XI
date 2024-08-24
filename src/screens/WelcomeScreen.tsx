@@ -42,7 +42,7 @@ const WelcomeScreen = () => {
   return (
     <>
       <Center
-        backgroundImage={"url('./src/assets/pitch.jpg')"}
+        backgroundImage={"url('/pitch.jpg')"}
         backgroundColor={"transparent"}
         backgroundPosition="center"
         width={"100vw"}
