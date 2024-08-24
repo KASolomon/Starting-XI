@@ -5,6 +5,7 @@ import {
     FormControl,
     FormLabel,
     Heading,
+    Icon,
     NumberDecrementStepper,
     NumberIncrementStepper,
     NumberInput,
@@ -16,6 +17,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import LeftSlideBox from "../components/LeftSlideBox";
 import { StartingXIContext } from "../config/AppContext";
+import { GiSoccerBall } from "react-icons/gi";
 
 interface FormData {
   totalPlayers: number;
@@ -102,8 +104,9 @@ const WelcomeScreen = () => {
               onClick={handleSubmit(handleDataSubmit)}
               paddingX={10}
               paddingY={4}
-              bgColor={"green.600"}
+              bgColor={"orange.600"}
             >
+              <Icon as={GiSoccerBall} boxSize={6} marginRight={2} />
               Proceed
             </Button>
           </Center>
